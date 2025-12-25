@@ -241,6 +241,32 @@ a{ color: inherit; }
   width: 20px;
   height: 20px;
   display:block;
-  filter: brightness(0) invert(1);
   opacity: .95;
+  /* filter: brightness(0) invert(1);  <-- löschen */
 }
+
+/* ============================= */
+/* Social Icons – targeted fixes */
+/* ============================= */
+
+/* GitHub: Icon ist schwarz -> auf dunklem BG zu schwach */
+.socials a.github img{
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+
+.socials a.github:hover img{
+  opacity: 1;
+}
+
+/* Email: ebenfalls schwarz -> angleichen */
+.socials a.email img{
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+
+.socials a.email:hover img{
+  opacity: 1;
+}
+
+
