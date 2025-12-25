@@ -3,30 +3,34 @@ import "../styles/global.css";
 
 const name = "Ahmed Martban";
 const role = "Robotics (ROS2) & AI Engineer";
-const tagline = "Building deployable robotics systems — from simulation to real-time AI.";
-
+const location = "Berlin, Germany";
 const intro =
-  "Electrical Engineering MSc (TU Berlin) focused on mobile robotics, ROS2 system integration, and AI methods (LLMs/CV) under real-time constraints.";
+  "I build deployable robotics systems with a focus on ROS2 system integration, social navigation, and AI (LLMs/CV) under real-time constraints.";
+
+const links = [
+  { label: "GitHub", href: "https://github.com/AhmedMartban" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/YOUR_LINKEDIN/" },
+  { label: "Email", href: "mailto:YOUR_EMAIL" },
+];
 
 const projects = [
   {
     title: "Learning-based Social Navigation (ROS2)",
+    venue: "Master’s Thesis • Arena-Rosnav / Nav2",
     desc: "Integration and benchmarking of learning-based planners for human-aware navigation in dense, dynamic environments.",
     tags: ["ROS2", "Nav2", "Gazebo", "DRL", "Benchmarking"],
-    link: "https://github.com/AhmedMartban"
+    buttons: [
+      { label: "Code", href: "https://github.com/AhmedMartban" },
+      { label: "Report", href: "#" },
+    ],
   },
   {
     title: "HuNav Gazebo Plugins (Garden Migration)",
+    venue: "Engineering • Simulation Plugins",
     desc: "Migration and refactoring of Gazebo plugins from Fortress to Garden with ROS2 compatibility.",
     tags: ["C++", "Gazebo Garden", "ROS2", "Simulation"],
-    link: "https://github.com/AhmedMartban"
+    buttons: [{ label: "Code", href: "https://github.com/AhmedMartban" }],
   },
-  {
-    title: "Planner Evaluation Framework",
-    desc: "Evaluation of classical vs learning-based planners using metrics like path length, curvature, velocity and safety.",
-    tags: ["Python", "Evaluation", "Metrics"],
-    link: "https://github.com/AhmedMartban"
-  }
 ];
 ---
 
@@ -35,55 +39,114 @@ const projects = [
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>{name} — {role}</title>
-    <meta name="description" content="Portfolio of Ahmed Martban — Robotics (ROS2), AI, Computer Vision, and autonomous systems." />
+    <meta name="description" content="Portfolio of Ahmed Martban — Robotics (ROS2), AI, and autonomous systems." />
   </head>
 
   <body>
-    <main class="container" style="padding-top: 64px; padding-bottom: 64px;">
-      <!-- HERO -->
-      <section>
-        <div class="muted" style="font-size: 14px;">{role}</div>
-        <h1 style="font-size: 44px; font-weight: 650; margin-top: 10px; letter-spacing: -0.02em;">
-          {name}
-        </h1>
-        <div class="muted" style="margin-top: 10px; font-size: 18px;">{tagline}</div>
+    <!-- NAV -->
+    <header class="nav">
+      <div class="container nav-inner">
+        <a class="brand" href="#top">&lt;/&gt;</a>
+        <nav class="nav-links">
+          <a href="#projects">Projects</a>
+          <a href="#research">Research</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="nav-right">
+          <span class="pill">Open to opportunities</span>
+        </div>
+      </div>
+    </header>
 
-        <p class="muted" style="margin-top: 18px; max-width: 720px; line-height: 1.6;">
-          {intro}
-        </p>
+    <main id="top" class="container page">
+      <!-- HERO GRID -->
+      <section class="hero">
+        <div class="hero-left">
+          <div class="kicker">{role}</div>
+          <h1 class="h1">{name}</h1>
+          <p class="lead">{intro}</p>
 
-        <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px;">
-          <a class="card" style="padding: 10px 16px; display: inline-block; text-decoration: none;" href="#projects">Projects</a>
-          <a class="card" style="padding: 10px 16px; display: inline-block; text-decoration: none;" href="https://github.com/AhmedMartban" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="card" style="padding: 10px 16px; display: inline-block; text-decoration: none;" href="mailto:YOUR_EMAIL">Contact</a>
+          <div class="meta">
+            <span class="dot"></span>
+            <span class="muted">{location}</span>
+          </div>
+
+          <div class="actions">
+            {links.map((l) => (
+              <a class="btn" href={l.href} target={l.href.startsWith("http") ? "_blank" : undefined} rel="noreferrer">
+                {l.label}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="avatar-ring">
+            <img class="avatar" src="/profile.jpg" alt="Ahmed Martban profile photo" />
+          </div>
         </div>
       </section>
 
       <!-- PROJECTS -->
-      <section id="projects" style="margin-top: 72px;">
-        <h2 style="font-size: 24px; font-weight: 650;">Projects</h2>
-        <p class="muted" style="margin-top: 8px;">
-          Selected engineering and research projects (architecture, challenges, metrics).
-        </p>
+      <section id="projects" class="section">
+        <h2 class="h2">Projects</h2>
+        <p class="muted">Case-study style summaries with architecture, challenges, and measurable performance.</p>
 
-        <div style="display: grid; gap: 16px; margin-top: 24px;">
+        <div class="stack">
           {projects.map((p) => (
-            <a class="card" style="padding: 18px; display:block; text-decoration: none;" href={p.link} target="_blank" rel="noreferrer">
-              <div style="display:flex; justify-content: space-between; gap: 16px; align-items: flex-start;">
-                <h3 style="font-size: 18px; font-weight: 650; margin: 0;">{p.title}</h3>
-                <span class="muted" style="font-size: 12px;">Repo →</span>
+            <article class="card2">
+              <div class="card2-top">
+                <div>
+                  <h3 class="h3">{p.title}</h3>
+                  <div class="muted small">{p.venue}</div>
+                </div>
+                <div class="btn-row">
+                  {p.buttons?.map((b) => (
+                    <a class="chip" href={b.href} target="_blank" rel="noreferrer">{b.label}</a>
+                  ))}
+                </div>
               </div>
-              <p class="muted" style="margin-top: 10px; line-height: 1.6;">{p.desc}</p>
 
-              <div style="display:flex; flex-wrap: wrap; gap: 8px; margin-top: 14px;">
-                {p.tags.map((t) => <span class="badge">{t}</span>)}
+              <p class="muted">{p.desc}</p>
+              <div class="tags">
+                {p.tags.map((t) => <span class="tag">{t}</span>)}
               </div>
-            </a>
+            </article>
           ))}
         </div>
       </section>
 
-      <footer class="muted" style="margin-top: 80px; font-size: 13px;">
+      <!-- RESEARCH (Placeholder) -->
+      <section id="research" class="section">
+        <h2 class="h2">Research</h2>
+        <p class="muted">Selected publications and contributions.</p>
+
+        <article class="card2">
+          <div class="card2-top">
+            <div>
+              <h3 class="h3">Arena-Rosnav / Arena-Bench Contributions</h3>
+              <div class="muted small">Social Navigation • ROS2 Simulation • Benchmarking</div>
+            </div>
+            <div class="btn-row">
+              <a class="chip" href="#" target="_blank" rel="noreferrer">Paper</a>
+              <a class="chip" href="#" target="_blank" rel="noreferrer">Code</a>
+            </div>
+          </div>
+          <p class="muted">
+            Benchmarks and tooling around navigation in collaborative, dynamic environments.
+          </p>
+        </article>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="section">
+        <h2 class="h2">Contact</h2>
+        <p class="muted">
+          Email: <a class="link" href="mailto:YOUR_EMAIL">YOUR_EMAIL</a>
+        </p>
+      </section>
+
+      <footer class="footer muted">
         © {new Date().getFullYear()} Ahmed Martban
       </footer>
     </main>
