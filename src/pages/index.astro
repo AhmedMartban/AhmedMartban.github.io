@@ -1,0 +1,91 @@
+---
+import "../styles/global.css";
+
+const name = "Ahmed Martban";
+const role = "Robotics (ROS2) & AI Engineer";
+const tagline = "Building deployable robotics systems — from simulation to real-time AI.";
+
+const intro =
+  "Electrical Engineering MSc (TU Berlin) focused on mobile robotics, ROS2 system integration, and AI methods (LLMs/CV) under real-time constraints.";
+
+const projects = [
+  {
+    title: "Learning-based Social Navigation (ROS2)",
+    desc: "Integration and benchmarking of learning-based planners for human-aware navigation in dense, dynamic environments.",
+    tags: ["ROS2", "Nav2", "Gazebo", "DRL", "Benchmarking"],
+    link: "https://github.com/AhmedMartban"
+  },
+  {
+    title: "HuNav Gazebo Plugins (Garden Migration)",
+    desc: "Migration and refactoring of Gazebo plugins from Fortress to Garden with ROS2 compatibility.",
+    tags: ["C++", "Gazebo Garden", "ROS2", "Simulation"],
+    link: "https://github.com/AhmedMartban"
+  },
+  {
+    title: "Planner Evaluation Framework",
+    desc: "Evaluation of classical vs learning-based planners using metrics like path length, curvature, velocity and safety.",
+    tags: ["Python", "Evaluation", "Metrics"],
+    link: "https://github.com/AhmedMartban"
+  }
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{name} — {role}</title>
+    <meta name="description" content="Portfolio of Ahmed Martban — Robotics (ROS2), AI, Computer Vision, and autonomous systems." />
+  </head>
+
+  <body>
+    <main class="container" style="padding-top: 64px; padding-bottom: 64px;">
+      <!-- HERO -->
+      <section>
+        <div class="muted" style="font-size: 14px;">{role}</div>
+        <h1 style="font-size: 44px; font-weight: 650; margin-top: 10px; letter-spacing: -0.02em;">
+          {name}
+        </h1>
+        <div class="muted" style="margin-top: 10px; font-size: 18px;">{tagline}</div>
+
+        <p class="muted" style="margin-top: 18px; max-width: 720px; line-height: 1.6;">
+          {intro}
+        </p>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px;">
+          <a class="card" style="padding: 10px 16px; display: inline-block; text-decoration: none;" href="#projects">Projects</a>
+          <a class="card" style="padding: 10px 16px; display: inline-block; text-decoration: none;" href="https://github.com/AhmedMartban" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="card" style="padding: 10px 16px; display: inline-block; text-decoration: none;" href="mailto:YOUR_EMAIL">Contact</a>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects" style="margin-top: 72px;">
+        <h2 style="font-size: 24px; font-weight: 650;">Projects</h2>
+        <p class="muted" style="margin-top: 8px;">
+          Selected engineering and research projects (architecture, challenges, metrics).
+        </p>
+
+        <div style="display: grid; gap: 16px; margin-top: 24px;">
+          {projects.map((p) => (
+            <a class="card" style="padding: 18px; display:block; text-decoration: none;" href={p.link} target="_blank" rel="noreferrer">
+              <div style="display:flex; justify-content: space-between; gap: 16px; align-items: flex-start;">
+                <h3 style="font-size: 18px; font-weight: 650; margin: 0;">{p.title}</h3>
+                <span class="muted" style="font-size: 12px;">Repo →</span>
+              </div>
+              <p class="muted" style="margin-top: 10px; line-height: 1.6;">{p.desc}</p>
+
+              <div style="display:flex; flex-wrap: wrap; gap: 8px; margin-top: 14px;">
+                {p.tags.map((t) => <span class="badge">{t}</span>)}
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <footer class="muted" style="margin-top: 80px; font-size: 13px;">
+        © {new Date().getFullYear()} Ahmed Martban
+      </footer>
+    </main>
+  </body>
+</html>
