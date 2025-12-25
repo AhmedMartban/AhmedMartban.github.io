@@ -79,9 +79,10 @@ a{ color: inherit; }
   display:grid;
   grid-template-columns: 1.4fr .6fr;
   gap: 48px;
-  align-items: center;
+  align-items: start;
   margin-top: 8px;
 }
+
 .kicker{
   font-size: 13px;
   color: var(--muted);
@@ -131,7 +132,11 @@ a{ color: inherit; }
 .hero-right{
   display:flex;
   justify-content: flex-end;
+  align-self: start;
+  padding-top: 0;
 }
+
+
 
 /* Avatar ring (ähnlich Linh: Kreis + Farbring) */
 .avatar-ring{
@@ -207,4 +212,35 @@ a{ color: inherit; }
   .hero-right{ justify-content:flex-start; }
   .avatar-ring{ width: 180px; height: 180px; }
   .h1{ font-size: 42px; }
+}
+.socials{
+  display:flex;
+  gap:12px;
+  margin-top: 18px;
+}
+
+.socials a{
+  width: 40px;
+  height: 40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.06);
+  transition: transform .12s ease, background .12s ease, border-color .12s ease;
+}
+
+.socials a:hover{
+  transform: translateY(-2px);
+  background: rgba(124,108,255,.14);
+  border-color: rgba(124,108,255,.30);
+}
+
+.socials img{
+  width: 20px;
+  height: 20px;
+  display:block;
+  filter: brightness(0) invert(1);
+  opacity: .95;
 }
